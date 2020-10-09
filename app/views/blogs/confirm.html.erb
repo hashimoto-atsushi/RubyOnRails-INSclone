@@ -3,7 +3,6 @@
 <div>
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
-  <% binding.pry%>
 </div>
 
 <div>
@@ -25,6 +24,6 @@
   <%= f.submit "この内容で投稿する" %>
 </div>
 <div>
-  <link_to "戻る" data:?>
+  <%= f.submit "戻る", name: 'back' %>
 </div>
 <% end %>
