@@ -7,4 +7,15 @@
 <div>
   <%= @blog.content %>
 </div>
+<% unless @blog.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <div>
+      <%= link_to "お気に入り解除する", favorite_path(id: @favorite.id), method: :delete, class: "btn btn-danger" %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to "お気に入りに追加する", favorite_path(blog_id: @blog.id), method: :post, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>
 <%= link_to "ブログ一覧へ戻る", blogs_path %>
