@@ -3,5 +3,5 @@ class Blog < ApplicationRecord
                       length: { maximum: 20 }
   validates :content, presence: true,
                       length: { maximum: 140 }
-  # belongs_to :user
+  belongs_to :user
 end
