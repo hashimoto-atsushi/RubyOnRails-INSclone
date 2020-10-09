@@ -2,7 +2,7 @@
 <%= form_with(model: @user, local: true) do | f |%>
   <div class="error_explanation">
     <% if @user.errors.any? %>
-      <p><%= @user.errors.count%>件のエラーがあります。</p>
+      <p><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %>from being saved: </p>
       <ul>
         <% @user.errors.full_messages.each do | msg | %>
         <li><%= msg %></li>
@@ -16,15 +16,15 @@
   </div>
   <div>
     <%= f.label :"Eメールアドレス:" %>
-    <%= f.text_field :"email" %>
+    <%= f.email_field :"email" %>
   </div>
   <div>
     <%= f.label :"パスワード:" %>
-    <%= f.text_field :"password" %>
+    <%= f.password_field :"password" %>
   </div>
   <div>
     <%= f.label :"パスワード確認:" %>
-    <%= f.text_field :"password_confirmation" %>
+    <%= f.password_field :"password_confirmation" %>
   </div>
   <div>
     <%= f.submit "新規ユーザー登録をする"%>
