@@ -1,0 +1,30 @@
+<h1>投稿確認</h1>
+<%= form_with(model: @blog, local: true, url: blogs_path) do | f | %>
+<div>
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :content %>
+  <% binding.pry%>
+</div>
+
+<div>
+  <P>タイトル: </P>
+</div>
+<div>
+  <p><%= @blog.title %></p>
+</div>
+<div>
+  <P>内容:</P>
+</div>
+<div>
+  <P><%= @blog.content %></P>
+</div>
+<div>
+  <P>画像のデータ</P>
+</div>
+<div>
+  <%= f.submit "この内容で投稿する" %>
+</div>
+<div>
+  <link_to "戻る" data:?>
+</div>
+<% end %>
