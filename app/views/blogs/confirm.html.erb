@@ -4,6 +4,7 @@
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
   <%= f.hidden_field :image %>
+  <%= f.hidden_field :image_cache %>
 
 </div>
 
@@ -20,7 +21,7 @@
   <P><%= @blog.content %></P>
 </div>
 <div>
-  <P><%= @blog.image.url %></P>
+  <P><%= image_tag (@blog.image.url) if @blog.image && @blog.image.url %></P>
 </div>
 <div>
   <%= f.submit "この内容で投稿する" %>

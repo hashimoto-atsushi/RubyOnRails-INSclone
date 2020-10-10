@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy,]
   def index
     @blogs = Blog.all
   end
@@ -29,18 +29,24 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-    @blog.destroy
-    redirect_to blogs_path, notice: "ブログを削除しました"
+    if logged_in?
+      @blog.destroy
+      redirect_to blogs_path, notice: "ブログを削除しました"
+    end
   end
 
   def show
-    @blog
-    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
-    @favorite_blogs = current_user.favorite_blogs
+    if logged_in?
+      @blog
+      @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+      @favorite_blogs = current_user.favorite_blogs
+    end
   end
 
   def edit
+    if logged_in?
     @blog
+    end
   end
 
   def update
@@ -55,7 +61,7 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :content, :image)
+    params.require(:blog).permit(:title, :content, :image, :image_cache)
   end
 
   def set_blog

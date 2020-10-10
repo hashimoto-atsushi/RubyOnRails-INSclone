@@ -3,8 +3,19 @@
 <P>お名前: <%= @user.name %> </P>
 <P>Eメールアドレス: <%= @user.email %></P>
 <div>
-  <%= link_to "お気に入り画像ページへ", favorite_path(current_user.id) %>
+<div>
+  <%= link_to "お気に入り画像ページへ", favorite_path(current_user.id) if logged_in?%>
+</div>
+<div>
   <%= link_to "登録情報を編集する", edit_user_path(current_user.id), data:{confirm: "登録を編集してもいいですか？"} if logged_in? %>
-  <%= link_to "登録を削除する", user_path, method: :delete, data:{confirm: "登録を消してもいいですか？"}%>
+</div>
+<div>
+  <%= link_to "ユーザー登録を削除する", user_path, method: :delete, data:{confirm: "(重要)本当にユーザー登録を消してもいいですか!!?"}%>
+</div>
+<div>
   <%= link_to "新規ブログ投稿へ", new_blog_path %>
+</div>
+<div>
+  <%= link_to "ブログ一覧へ", blogs_path %>
+</div>
 </div>

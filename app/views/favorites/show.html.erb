@@ -1,9 +1,14 @@
 <h1><%= current_user.name %> のお気に入り画像</h1>
-
-<P>お名前: <%= current_user.name %> </P>
-
 <div>
   <% @favorite_blogs.each do |blog| %>
-  <%= image_tag blog.image.url %>
+  <div>
+    <%= image_tag blog.image.url %>
+  </div>
+  <div>
+    <p>タイトル:  <%= blog.title %></p>
+  </div>
   <% end %>
+</div>
+<div>
+  <%= link_to "ブログ一覧へ", blogs_path %>
 </div>
