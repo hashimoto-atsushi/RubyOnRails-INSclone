@@ -12,7 +12,7 @@
       <tr>
         <td><%= blog.title %></td>
         <td><%= blog.content %></td>
-        <td><%= %></td>
+        <td><%= image_tag blog.image.url if blog.image.url %></td>
         <td><%= blog.user.name %></td>
         <td><%= link_to "詳細へ", blog_path(blog.id) %></td>
         <td><%= link_to "編集へ", edit_blog_path(blog.id) %></td>

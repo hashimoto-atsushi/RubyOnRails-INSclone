@@ -19,7 +19,8 @@
       <%= f.text_field :content %>
     </div>
     <div>
-      <!-- ここにイメージを追加 -->
+      <%= f.label :"投稿画像"%>
+      <%= f.file_field :image %>
     </div>
     <div>
       <%= f.submit %>

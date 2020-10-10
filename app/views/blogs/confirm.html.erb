@@ -3,6 +3,8 @@
 <div>
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
+  <%= f.hidden_field :image %>
+
 </div>
 
 <div>
@@ -18,7 +20,7 @@
   <P><%= @blog.content %></P>
 </div>
 <div>
-  <P>画像のデータ</P>
+  <P><%= @blog.image.url %></P>
 </div>
 <div>
   <%= f.submit "この内容で投稿する" %>

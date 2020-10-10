@@ -8,6 +8,9 @@
 <div>
   <%= @blog.content %>
 </div>
+<div>
+  <%= image_tag @blog.image.url if @blog.image.url %>
+</div>
 <P><<お気に入り>></P>
 <div>
   <% @favorite_blogs.each do |blog| %>
