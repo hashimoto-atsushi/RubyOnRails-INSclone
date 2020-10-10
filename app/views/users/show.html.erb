@@ -3,5 +3,6 @@
 <P>お名前: <%= @user.name %> </P>
 <P>Eメールアドレス: <%= @user.email %></P>
 <div>
+  <%= link_to "登録を削除する", user_path, method: :delete, data:{confirm: "登録を消してもいいですか？"}%>
   <%= link_to "新規ブログ投稿へ", new_blog_path %>
 </div>
