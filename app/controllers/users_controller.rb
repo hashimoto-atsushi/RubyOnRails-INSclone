@@ -22,14 +22,16 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+    if @user.update(user_params)
     redirect_to new_session_path
+    else
+    render :edit
+    end
   end
 
   def destroy
     @user = User.find(params[:id])
     if current_user.present?
-      debugger
     @blog = Blog.where(user_id: current_user.id)
     @blog.destroy_all
     end
