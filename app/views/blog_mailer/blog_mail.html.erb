@@ -1,0 +1,6 @@
+<h1>画像投稿 完了のお知らせ</h1>
+<p><%= @mailer.name%>さん画像を登録しました。<p>
+<div>
+  <%= image_tag @blog.image.url if @blog.image.url %>
+</div>
+<P>投稿画像</P>

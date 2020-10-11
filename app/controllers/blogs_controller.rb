@@ -17,10 +17,12 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
+    @mailer = current_user
     if params[:back]
       render :new
     else
       if @blog.save
+        BlogMailer.blog_mail(@mailer, @blog).deliver if @blog.image?
         redirect_to blogs_path, notice: "ブログ作成しました。"
       else
         render :new
