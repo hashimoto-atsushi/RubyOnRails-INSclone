@@ -27,6 +27,10 @@
     <%= f.password_field :"password_confirmation" %>
   </div>
   <div>
+    <%= f.label :"プロフィール写真"%>
+    <%= f.file_field "selfpicture" %>
+  </div>
+  <div>
     <%= f.submit "新規ユーザー登録をする"%>
   </div>
   <div>
