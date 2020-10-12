@@ -1,11 +1,10 @@
 <h1 class="title"><%= @user.name %> ページ</h1>
-
 <div class="form-field">
   <P>お名前: <%= @user.name %> </P>
   <P>Eメールアドレス: <%= @user.email %></P>
   <div>
     <p>ブロフィール写真</p>
-    <%= image_tag @user.selfpicture.url if @user.selfpicture.url%>
+      <%= image_tag @user.selfpicture.url if @user.selfpicture.url%>
   </div>
   <div class="link-margin">
     <%= link_to "お気に入り画像ページへ", favorite_path(current_user.id), class:"link" if logged_in?%>

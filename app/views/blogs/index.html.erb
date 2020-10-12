@@ -1,6 +1,6 @@
 <h1 class="title">ブログ一覧</h1>
 <%= form_with(model: @blog, local: true) do | f | %>
-<%= notice %>
+  <%= notice %>
   <table>
     <tr>
       <th>タイトル</th>
@@ -14,18 +14,18 @@
         <td><%= blog.title %></td>
         <td><%= blog.user.name %></td>
         <td><%= image_tag blog.image.url if blog.image.url %></td>
-        <td><%= blog.content %></td>
-        <td><%= link_to "詳細へ", blog_path(blog.id), class:"table-link" %></td>
-        <% if logged_in? && blog.user_id == current_user.id%>
-        <td><%= link_to "編集へ", edit_blog_path(blog.id), class:"table-link" %></td>
-        <td><%= link_to "削除する", blog_path(blog.id), method: :delete, data:{ confirm: "削除しますか？"}, class:"table-link" %></td>
-        <% end %>
+          <td><%= blog.content %></td>
+          <td><%= link_to "詳細へ", blog_path(blog.id), class:"table-link" %></td>
+          <% if logged_in? && blog.user_id == current_user.id%>
+          <td><%= link_to "編集へ", edit_blog_path(blog.id), data:{ confirm: "編集しますか？"}, class:"table-link" %></td>
+          <td><%= link_to "削除する", blog_path(blog.id), method: :delete, data:{ confirm: "削除しますか？"}, class:"table-link" %></td>
+          <% end %>
       </tr>
     <% end %>
   </table>
   <div>
     <% if logged_in? %>
-    <P class="link-p"><%= link_to "新規投稿へ", new_blog_path, class: "link" %></P>
+      <P class="link-p"><%= link_to "新規投稿へ", new_blog_path, class: "link" %></P>
     <% end %>
   </div>
 <% end %>
