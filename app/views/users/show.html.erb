@@ -13,12 +13,12 @@
     <%= link_to "登録情報を編集する", edit_user_path(current_user.id), data:{confirm: "登録を編集してもいいですか？"}, class:"link" if logged_in? %>
   </div>
   <div class="link-margin">
-    <%= link_to "【注意！】ユーザー登録を削除する", user_path, method: :delete, data:{confirm: "(重要)本当にユーザー登録を消してもいいですか!!?"}, class:"link"%>
-  </div>
-  <div class="link-margin">
     <%= link_to "新規ブログ投稿へ", new_blog_path, class:"link" %>
   </div>
   <div class="link-margin">
     <%= link_to "ブログ一覧へ", blogs_path, class:"link" %>
+  </div>
+  <div class="link-margin">
+    <%= link_to "【注意！】ユーザー登録を削除する", user_path, method: :delete, data:{confirm: "(重要)本当にユーザー登録を消してもいいですか!!?"}, class:"link"%>
   </div>
 </div>

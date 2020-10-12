@@ -11,12 +11,16 @@
   <% end %>
   <div class="form-field">
     <div>
-      <%= f.label :"タイトル:", class:"input-label"%>
+      <div>
+        <%= f.label :"タイトル:", class:"input-label"%>
+      </div>
       <%= f.text_field :title, class:"input"%>
     </div>
     <div>
-      <%= f.label :"内容:", class:"input-label" %>
-      <%= f.text_field :content, class:"input" %>
+      <div>
+        <%= f.label :"内容:", class:"input-label" %>
+      </div>
+      <%= f.text_area :content, class:"input blog-input" %>
     </div>
     <div>
       <%= f.label :"投稿画像", class:"input-label"%>
