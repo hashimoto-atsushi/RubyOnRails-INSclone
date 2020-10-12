@@ -1,28 +1,30 @@
-<h1>ブログ詳細</h1>
+<h1 class="title">ブログ詳細</h1>
 <%= form_with(model:@blog, local: true ) do | f |%>
-<p>タイトル</p>
-<div>
-  <%= @blog.title %>
-</div>
-<p>内容</p>
-<div>
-  <%= @blog.content %>
-</div>
-<div>
-  <%= image_tag @blog.image.url if @blog.image.url %>
-</div>
-<% if logged_in? %>
-<% unless @blog.user_id == current_user.id %>
-  <% if @favorite.present? %>
+  <div class="form-field">
+    <p>タイトル:</p>
     <div>
-      <%= link_to "お気に入り解除する", favorite_path(id: @favorite.id), method: :delete, class: "btn btn-danger" %>
+      <%= @blog.title %>
     </div>
-  <% else %>
+    <p>内容:</p>
     <div>
-      <%= link_to "お気に入りに追加する", favorites_path(blog_id: @blog.id), method: :post, class: "btn btn-primary" %>
+      <%= @blog.content %>
     </div>
-  <% end %>
-<% end %>
-<% end %>
-<%= link_to "ブログ一覧へ戻る", blogs_path %>
+    <div>
+      <%= image_tag @blog.image.url if @blog.image.url %>
+    </div>
+      <% if logged_in? %>
+        <% unless @blog.user_id == current_user.id %>
+          <% if @favorite.present? %>
+          <div>
+            <%= link_to "お気に入り解除する", favorite_path(id: @favorite.id), method: :delete, class: "btn btn-danger" %>
+          </div>
+          <% else %>
+          <div>
+            <%= link_to "お気に入りに追加する", favorites_path(blog_id: @blog.id), method: :post, class: "btn btn-primary" %>
+          </div>
+          <% end %>
+        <% end %>
+    <% end %>
+    <P class="link-p"><%= link_to "ブログ一覧へ戻る", blogs_path, class:"link" %></P>
+  </div>
 <% end %>

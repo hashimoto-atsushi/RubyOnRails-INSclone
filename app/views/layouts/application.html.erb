@@ -14,14 +14,25 @@
     <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
     <header>
-      <% if logged_in? %>
-      <%= link_to "マイページ", user_path(current_user.id) %>
-      <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-      <% else %>
-      <%= link_to "新規ユーザー登録", new_user_path %>
-      <%= link_to "ログイン", new_session_path %>
-      <% end %>
+      <div class="header-logo">
+        <h2>INSKlone</h2>
+      </div>
+      <div class="login">
+        <% if logged_in? %>
+        <%= link_to "マイページ", user_path(current_user.id), class:"header-link" %>
+        <%= link_to "ログアウト", session_path(current_user.id), method: :delete, class:"header-link" %>
+        <% else %>
+        <%= link_to "新規ユーザー登録", new_user_path, class:"header-link" %>
+        <%= link_to "ログイン", new_session_path, class:"header-link" %>
+        <% end %>
+      </div>
     </header>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+
+    </footer>
   </body>
+
 </html>

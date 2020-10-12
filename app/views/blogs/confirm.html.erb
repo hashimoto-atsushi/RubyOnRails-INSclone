@@ -1,32 +1,33 @@
-<h1>投稿確認</h1>
+<h1 class="title">投稿確認</h1>
 <%= form_with(model: @blog, local: true, url: blogs_path) do | f | %>
 <div>
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
   <%= f.hidden_field :image %>
   <%= f.hidden_field :image_cache %>
-
 </div>
 
-<div>
-  <P>タイトル: </P>
-</div>
-<div>
-  <p><%= @blog.title %></p>
-</div>
-<div>
-  <P>内容:</P>
-</div>
-<div>
-  <P><%= @blog.content %></P>
-</div>
-<div>
-  <P><%= image_tag (@blog.image.url) if @blog.image && @blog.image.url %></P>
-</div>
-<div>
-  <%= f.submit "この内容で投稿する" %>
-</div>
-<div>
-  <%= f.submit "戻る", name: 'back' %>
+<div class="form-field">
+  <div>
+    <P>タイトル: </P>
+  </div>
+  <div>
+    <p><%= @blog.title %></p>
+  </div>
+  <div>
+    <P>内容:</P>
+  </div>
+  <div>
+    <P><%= @blog.content %></P>
+  </div>
+  <div>
+    <P><%= image_tag (@blog.image.url) if @blog.image && @blog.image.url %></P>
+  </div>
+  <div class="btn">
+    <%= f.submit "この内容で投稿する" %>
+  </div>
+  <div class="btn">
+    <%= f.submit "戻る", name: 'back' %>
+  </div>
 </div>
 <% end %>

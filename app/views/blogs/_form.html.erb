@@ -9,24 +9,24 @@
   </ul>
   </div>
   <% end %>
-  <div class="form_field">
+  <div class="form-field">
     <div>
-      <%= f.label :"タイトル:" %>
-      <%= f.text_field :title %>
+      <%= f.label :"タイトル:", class:"input-label"%>
+      <%= f.text_field :title, class:"input"%>
     </div>
     <div>
-      <%= f.label :"内容:" %>
-      <%= f.text_field :content %>
+      <%= f.label :"内容:", class:"input-label" %>
+      <%= f.text_field :content, class:"input" %>
     </div>
     <div>
-      <%= f.label :"投稿画像"%>
-      <%= f.file_field :image %>
+      <%= f.label :"投稿画像", class:"input-label"%>
+      <%= f.file_field :image, class:"input" %>
     </div>
     <div>
-      <%= f.submit %>
+      <%= f.submit class:"input" %>
     </div>
     <div>
-      <%= link_to "ブログ一覧へ戻る", blogs_path %>
+      <%= link_to "ブログ一覧へ戻る", blogs_path, class:"link"  %>
     </div>
   </div>
 <% end %>
